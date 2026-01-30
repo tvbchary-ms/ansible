@@ -1,0 +1,50 @@
+# ===== Ansible runtime files =====
+*.retry
+*.log
+
+# ===== Inventory secrets =====
+inventory/*/group_vars/*vault*
+inventory/*/host_vars/*vault*
+vault.yml
+vault*.yml
+
+# ===== SSH / private keys =====
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# ===== Environment files =====
+.env
+.env.*
+
+# ===== Python / Ansible cache =====
+__pycache__/
+*.pyc
+.venv/
+
+# ===== Roles downloaded via Galaxy =====
+roles/
+collections/
+
+# ===== Terraform (if infra + ansible repo) =====
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# ===== OS / Editor =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===== Backup / temp =====
+*~
+*.bak
+*.tmp
+
+# ===== macOS junk =====
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
