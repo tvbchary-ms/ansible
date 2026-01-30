@@ -20,7 +20,6 @@ For automating network devices and other IT appliances where modules cannot be e
 
 
 
-# ------------------------
 
 # Comparison with Shell Scripting
 
