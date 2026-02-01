@@ -12,14 +12,14 @@
 
 ##### config file content
   
-```bash
+```
 Host <desired_ssh_loginname>
 HostName <Public/Private_IP_In_Scope>
 User <username>
 IdentityFile <path/to/.pem/file>
 ```
 #### Example
-```bash
+```
 Host aws-app-instance
 HostName 121.121.121.121
 User ubuntu
