@@ -8,3 +8,27 @@ ad hoc commands are great for tasks you repeat rarely. For example, if you want 
 ```
 $ ansible [pattern] -m [module] -a "[module options]"
 ```
+#### ad hoc tasks use cases
+- Use cases for ad hoc tasks
+- Rebooting servers
+- Managing files
+- Managing packages
+- Managing users and groups
+- Managing services
+- Gathering facts
+- Check mode
+- Patterns and ad-hoc commands
+
+
+##### 1. Simple reboot command
+```
+ansible <target-manageed-node(s)> -b -m reboot
+```
+-  This command will reboot and gives the following status:
+```
+ <target-managed-node> | CHANGED => {
+    "changed": true,
+    "elapsed": 162,
+    "rebooted": true
+}
+```
