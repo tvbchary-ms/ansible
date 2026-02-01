@@ -20,7 +20,7 @@ $ ansible [pattern] -m [module] -a "[module options]"
 - Patterns and ad-hoc commands
 
 
-##### 1. Simple reboot command
+#### 1. Simple reboot command
 ```
 ansible <target-manageed-node(s)> -b -m reboot
 ```
@@ -32,3 +32,21 @@ ansible <target-manageed-node(s)> -b -m reboot
     "rebooted": true
 }
 ```
+
+- By default, Ansible uses only five simultaneous processes. If you have more hosts than the value set for the fork count, it can increase the time it takes for Ansible to communicate with the hosts. 
+- To reboot the [local] servers with 10 parallel forks:
+```
+$ ansible local -a "/sbin/reboot" -f 10
+```
+
+- /usr/bin/ansible will default to running from your user account. To connect as a different user:
+```
+$ ansible atlanta -a "/sbin/reboot" -f 10 -u username
+```
+
+- Rebooting probably requires privilege escalation. You can connect to the server as username and run the command as the root user by using the become keyword:
+
+```
+$ ansible atlanta -a "/sbin/reboot" -f 10 -u username --become [--ask-become-pass]
+```
+##### - If we add --ask-become-pass or -K, Ansible prompts you for the password to use for privilege escalation (sudo/su/pfexec/doas/etc).
