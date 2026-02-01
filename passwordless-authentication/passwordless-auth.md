@@ -18,3 +18,12 @@ HostName <Public/Private_IP_In_Scope>
 User <username>
 IdentityFile <path/to/.pem/file>
 ```
+#### Example
+```bash
+Host aws-app-instance
+HostName 121.121.121.121
+User ubuntu
+IdentityFile <~/.ssh/my_key_pair.pem>
+```
+#### Now we can login using ssh <Host> 
+##### - example: ssh aws-app-instance
