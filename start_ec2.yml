@@ -1,0 +1,13 @@
+- name: Start existing EC2 instance
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Start EC2 instance
+      amazon.aws.ec2_instance:
+        instance_ids:
+          -  i-09a***********58  # <-- your instance ID
+        region: ap-south-2
+        state: running
+        wait: yes
