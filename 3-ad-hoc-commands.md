@@ -50,3 +50,6 @@ $ ansible atlanta -a "/sbin/reboot" -f 10 -u username
 $ ansible atlanta -a "/sbin/reboot" -f 10 -u username --become [--ask-become-pass]
 ```
 ##### - If we add --ask-become-pass or -K, Ansible prompts you for the password to use for privilege escalation (sudo/su/pfexec/doas/etc).
+
+#### 2. Managing files
+- 
