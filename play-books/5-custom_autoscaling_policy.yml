@@ -1,0 +1,26 @@
+---
+- name: Create IAM policy with full Auto Scaling access
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  collections:
+    - amazon.aws
+
+  tasks:
+    - name: Create Auto Scaling Full Access IAM policy
+      iam_managed_policy:
+        name: custom-full-access-autoscaling-policy
+        description: Full access to EC2 Auto Scaling resources
+        state: present
+        policy: |
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": "autoscaling:*",
+                "Resource": "*"
+              }
+            ]
+          }

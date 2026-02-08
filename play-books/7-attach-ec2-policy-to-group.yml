@@ -1,0 +1,15 @@
+---
+- name: Attach EC2 full-control policy to Compute_Team group
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  collections:
+    - amazon.aws
+
+  tasks:
+    - name: Attach-Policy-To-Group
+      amazon.aws.iam_group_policy_attachment:
+        group_name: Compute_Team
+        policy_arn: arn:aws:iam::416508157629:policy/custom-full-access-autoscaling-policy
+        state: present

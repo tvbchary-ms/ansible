@@ -1,0 +1,26 @@
+---
+- name: Create IAM policy with full EC2 access
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  collections:
+    - amazon.aws
+
+  tasks:
+    - name: Create EC2 Full Access IAM policy
+      iam_managed_policy:
+        name: custom-full-access-ec2-policy
+        description: Full access to EC2 resources
+        state: present
+        policy: |
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": "ec2:*",
+                "Resource": "*"
+              }
+            ]
+          }

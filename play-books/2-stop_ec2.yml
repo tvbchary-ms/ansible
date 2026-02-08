@@ -7,7 +7,7 @@
     - name: Stop EC2 instance
       amazon.aws.ec2_instance:
         instance_ids:
-          -  i-06***********65  # <-- your instance ID
+          -  i-09***********58  # <-- your instance ID
         region: ap-south-2
         state: terminated
         wait: yes

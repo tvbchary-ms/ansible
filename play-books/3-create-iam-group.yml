@@ -1,0 +1,13 @@
+- name: Create IAM Group
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  collections:
+    - amazon.aws
+
+  tasks:
+    - name: Create IAM Group 
+      amazon.aws.iam_group:
+        name: Compute_Team
+        state: present

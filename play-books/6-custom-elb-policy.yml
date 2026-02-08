@@ -1,0 +1,28 @@
+---
+- name: Create IAM policy with full Elastic Load Balancing access
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  collections:
+    - amazon.aws
+
+  tasks:
+    - name: Create ELB Full Access IAM policy
+      iam_managed_policy:
+        name: custom-full-access-elb-policy
+        description: Full access to Elastic Load Balancing (ELB, ALB, NLB)
+        state: present
+        policy: |
+          {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "elasticloadbalancing:*"
+                ],
+                "Resource": "*"
+              }
+            ]
+          }
